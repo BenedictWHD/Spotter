@@ -23,12 +23,12 @@ public class WorkoutFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-
+	
 		/** Inflating the layout for this fragment **/
 		View v = inflater.inflate(R.layout.workout_layout, null);
 		TextView displayTextView = (TextView) v.findViewById(R.id.text1);
 		displayTextView
-				.setText("W" + Integer.toString(MainActivity.workoutInt));
+				.setText("W" + Integer.toString(MainActivity.workoutInt-1));
 		Button btnAddWorkout = (Button) v.findViewById(R.id.woAdd);
 		OnClickListener listener = new OnClickListener() {
 
@@ -43,14 +43,16 @@ public class WorkoutFragment extends Fragment {
 				fragmentTransaction.setCustomAnimations(R.anim.fadein,
 						R.anim.slide_out_left, R.anim.slide_out_left,
 						R.anim.slide_in_right);
-				String exerciseTag = ("w").concat(Integer
-						.toString(MainActivity.workoutInt));
+				String exerciseTag = ("e").concat(Integer
+						.toString(exerciseInt));
 				fragmentTransaction.add(R.id.workout_fragment_container2,
 						exerciseFrag, exerciseTag);
+				System.out.println("Add an exercise " + exerciseTag);
 				// use the unique number
 				fragmentTransaction.addToBackStack("myFrag2");
-				exerciseInt++;
+				
 				fragmentTransaction.commit();
+				exerciseInt++;
 			}
 		};
 		btnAddWorkout.setOnClickListener(listener);
@@ -65,7 +67,7 @@ public class WorkoutFragment extends Fragment {
 					Fragment fragment = getFragmentManager().findFragmentById(
 							R.id.workout_fragment_container);
 					String tag = (String) fragment.getTag();
-					System.out.println(tag + "workoutTag");
+					System.out.println("Delete a workout" + tag + " I am returning: " + fragment);
 					FragmentTransaction fragmentTransaction = fragmentManager
 							.beginTransaction();
 					fragmentTransaction.remove(

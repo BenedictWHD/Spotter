@@ -40,10 +40,12 @@ public class MainActivity extends Activity {
 						R.anim.slide_in_right);
 				fragmentTransaction.add(R.id.workout_fragment_container,
 						workoutFrag, Integer.toString(workoutInt));
+				System.out.println("Add a workout " + Integer.toString(workoutInt));
 				fragmentTransaction.addToBackStack("myFrag");
 				// use the unique number Integer.toString(workoutInt)
-				workoutInt++;
+				
 				fragmentTransaction.commit();
+				workoutInt++;
 			}
 		};
 		addWorkout.setOnClickListener(listener);

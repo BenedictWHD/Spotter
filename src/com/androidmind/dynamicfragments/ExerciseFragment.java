@@ -1,6 +1,7 @@
 package com.androidmind.dynamicfragments;
 
 import com.androidmind.dynamicfragments.R;
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -23,7 +24,7 @@ public class ExerciseFragment extends Fragment {
 		View v = inflater.inflate(R.layout.exercise_layout, null);
 		TextView displayTextView = (TextView) v.findViewById(R.id.text1);
 		displayTextView.setText("E"
-				+ Integer.toString(WorkoutFragment.exerciseInt));
+				+ Integer.toString(WorkoutFragment.exerciseInt-1));
 
 	
 		// LinearLayout exLinearLayout = (LinearLayout) v
@@ -37,7 +38,7 @@ public class ExerciseFragment extends Fragment {
 		OnClickListener listener2 = new OnClickListener() {
 
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v) {//delete exercise
 				if ((WorkoutFragment.exerciseArray.size() - 1) >= 0) {
 					FragmentManager fragmentManager = getFragmentManager();
 					// id = fragment.getTag();
@@ -46,7 +47,7 @@ public class ExerciseFragment extends Fragment {
 					Fragment fragment2 = getFragmentManager().findFragmentById(
 							R.id.workout_fragment_container2);
 					String tag = (String) fragment2.getTag();
-					System.out.println(tag + "exerciseTag");
+					System.out.println("Delete an exercise " + tag);
 					FragmentTransaction fragmentTransaction = fragmentManager
 							.beginTransaction();
 					fragmentTransaction.addToBackStack("myFrag3");
