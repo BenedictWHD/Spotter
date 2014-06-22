@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/exTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fadeScrollbars="true"
+            android:text="Exercise"
+            android:textSize="16sp"
+            android:textStyle="italic" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/str_tv_fragment" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/exLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/exKg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fadeScrollbars="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Kg" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/exSets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fadeScrollbars="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Sets" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/exReps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fadeScrollbars="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Reps" >
+        </EditText>
+
+        <Button
+            android:id="@+id/exDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear" >
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>
