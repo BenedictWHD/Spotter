@@ -16,13 +16,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fadeScrollbars="true"
-            android:text="Workout"
-            android:textSize="16sp"
-            android:textStyle="italic" >
+            android:hint="@string/Workout"
+            android:textSize="18sp"
+            android:textStyle="italic" 
+            android:inputType="textFilter">
         </EditText>
         
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/textWo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -45,10 +46,15 @@
             android:id="@+id/woRest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
             android:layout_weight="1"
             android:fadeScrollbars="true"
-            android:text="Rest Days"
+            android:gravity="center_vertical|center_horizontal"
+            android:hint="@string/Rest_Days"
+            android:inputType="number"
+            android:textSize="18sp"
             android:textStyle="italic" >
+
         </EditText>
 
         <Button

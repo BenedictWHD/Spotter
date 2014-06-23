@@ -16,13 +16,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fadeScrollbars="true"
-            android:text="Exercise"
-            android:textSize="16sp"
-            android:textStyle="italic" >
+            android:hint="@string/Exercise"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:inputType="textFilter" >
         </EditText>
 
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/textEx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -39,32 +40,53 @@
             android:id="@+id/exKg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:fadeScrollbars="true"
             android:gravity="center_vertical|center_horizontal"
-            android:text="Kg" >
+            android:inputType="number">
         </EditText>
 
+         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
+            android:text="@string/Kg" />
+        
         <EditText
             android:id="@+id/exSets"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:fadeScrollbars="true"
             android:gravity="center_vertical|center_horizontal"
-            android:text="Sets" >
+            android:inputType="number" >
         </EditText>
 
+         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
+            android:text="@string/Sets" />
+        
         <EditText
             android:id="@+id/exReps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:fadeScrollbars="true"
             android:gravity="center_vertical|center_horizontal"
-            android:text="Reps" >
+            android:inputType="number" >
         </EditText>
 
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
+            android:text="@string/Reps" />
+        
         <Button
             android:id="@+id/exDelete"
             android:layout_width="wrap_content"

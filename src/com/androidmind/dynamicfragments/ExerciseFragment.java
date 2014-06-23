@@ -18,17 +18,14 @@ public class ExerciseFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+		
 		View v = inflater.inflate(R.layout.exercise_layout, null);
-		TextView displayTextView = (TextView) v.findViewById(R.id.text1);
+		
+		TextView displayTextView = (TextView) v.findViewById(R.id.textEx);
 		displayTextView.setText("e"
 				+ Integer.toString(WorkoutFragment.exerciseInt-1));
-		
-		// LinearLayout exLinearLayout = (LinearLayout) v
-		// .findViewById(R.id.exLinearLayout);
-		// EditText exTitle = (EditText) v.findViewById(R.id.exTitle);
-		// EditText exKg = (EditText) v.findViewById(R.id.exKg);
-		// EditText exSets = (EditText) v.findViewById(R.id.exSets);
-		// EditText exReps = (EditText) v.findViewById(R.id.exReps);
 		
 		Button btnDeleteExercise = (Button) v.findViewById(R.id.exDelete);
 		btnDeleteExercise.setTag(displayTextView.getText());
@@ -44,7 +41,7 @@ public class ExerciseFragment extends Fragment {
 					//System.out.println("Delete an exercise " + tag);
 					FragmentTransaction fragmentTransaction = fragmentManager
 							.beginTransaction();
-					fragmentTransaction.addToBackStack("myFrag3");
+					//fragmentTransaction.addToBackStack("myFrag3");
 					System.out.println("tag of the button " + v.getTag());
 					fragmentTransaction.remove(
 							fragmentManager.findFragmentByTag((String) v.getTag())).commit();
@@ -53,6 +50,5 @@ public class ExerciseFragment extends Fragment {
 		};
 		btnDeleteExercise.setOnClickListener(listener2);
 		return v;
-
 	}
 }

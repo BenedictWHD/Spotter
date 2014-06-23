@@ -24,12 +24,19 @@ public class WorkoutFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+		
 		View v = inflater.inflate(R.layout.workout_layout, null);
-		TextView displayTextView = (TextView) v.findViewById(R.id.text1);
+		TextView displayTextView = (TextView) v.findViewById(R.id.textWo);
+		
+		if(MainActivity.workoutNeedsRestore == 1){//restore
+			displayTextView.setText(Integer.toString(MainActivity.workoutRestoreInt - 1)); 
+			MainActivity.workoutNeedsRestore = 0;
+		}else{
 		displayTextView.setText(Integer.toString(MainActivity.workoutInt - 1));
-
-		// Button btnNew = new Button(getActivity()); //how to programatically
-		// add a button
+		}
+		// Button btnNew = new Button(getActivity()); //programatic button
 		// btnNew.setText("container2 " +
 		// Integer.toString(MainActivity.workoutInt -1));
 		// btnNew.setId((MainActivity.workoutInt-1));
@@ -72,15 +79,12 @@ public class WorkoutFragment extends Fragment {
 				fragmentTransaction.add(uniqueExerciseId, exerciseFrag,
 						exerciseTag);
 				System.out.println("Add an exercise " + exerciseTag);
-
-				// use the unique number
-				fragmentTransaction.addToBackStack("myFrag2");
+				//fragmentTransaction.addToBackStack("myFrag2");
 				fragmentTransaction.commit();
 				exerciseInt++;
 			}
 		};
 		btnAddWorkout.setOnClickListener(listener);
-
 		Button btnDelete = (Button) v.findViewById(R.id.woDelete);
 		btnDelete.setTag(displayTextView.getText());
 		OnClickListener listenerDelete = new OnClickListener() {
@@ -97,9 +101,8 @@ public class WorkoutFragment extends Fragment {
 					// " I am returning: " + fragment);
 					FragmentTransaction fragmentTransaction = fragmentManager
 							.beginTransaction();
-
+					fragmentTransaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
 					System.out.println("tag of the button" + v.getTag());
-
 					fragmentTransaction.remove(
 							fragmentManager.findFragmentByTag((String) v
 									.getTag())).commit();
@@ -109,5 +112,6 @@ public class WorkoutFragment extends Fragment {
 		btnDelete.setOnClickListener(listenerDelete);
 		return v;
 	}
-
+	
+	
 }

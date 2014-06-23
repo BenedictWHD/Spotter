@@ -4,6 +4,12 @@
     <string name="hello">Hello World, MainActivity!</string>
     <string name="app_name">Spotter</string>
     <string name="str_btn_load">Load Fragment</string>
+    <string name="Exercise">Exercise</string>
+    <string name="Kg">Kg</string>
+    <string name="Sets">Sets</string>
+    <string name="Reps">Reps</string>
+    <string name="Rest_Days">Rest Days</string>
+    <string name="Workout">Workout</string>
     <string name="str_tv_fragment">This is a fragment</string>
 
 </resources>
