@@ -18,15 +18,11 @@ public class ExerciseFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		
-	
-		/** Inflating the layout for this fragment **/
 		View v = inflater.inflate(R.layout.exercise_layout, null);
 		TextView displayTextView = (TextView) v.findViewById(R.id.text1);
-		displayTextView.setText("E"
+		displayTextView.setText("e"
 				+ Integer.toString(WorkoutFragment.exerciseInt-1));
-
-	
+		
 		// LinearLayout exLinearLayout = (LinearLayout) v
 		// .findViewById(R.id.exLinearLayout);
 		// EditText exTitle = (EditText) v.findViewById(R.id.exTitle);
@@ -34,37 +30,28 @@ public class ExerciseFragment extends Fragment {
 		// EditText exSets = (EditText) v.findViewById(R.id.exSets);
 		// EditText exReps = (EditText) v.findViewById(R.id.exReps);
 		
-		Button btnDeleteWorkout = (Button) v.findViewById(R.id.exDelete);
+		Button btnDeleteExercise = (Button) v.findViewById(R.id.exDelete);
+		btnDeleteExercise.setTag(displayTextView.getText());
 		OnClickListener listener2 = new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {//delete exercise
 				if ((WorkoutFragment.exerciseArray.size() - 1) >= 0) {
 					FragmentManager fragmentManager = getFragmentManager();
-					// id = fragment.getTag();
-
-
-					Fragment fragment2 = getFragmentManager().findFragmentById(
-							R.id.workout_fragment_container2);
-					String tag = (String) fragment2.getTag();
-					System.out.println("Delete an exercise " + tag);
+					//Fragment fragment2 = getFragmentManager().findFragmentById(
+					//		R.id.workout_fragment_container2);
+					//String tag = (String) fragment2.getTag();
+					//System.out.println("Delete an exercise " + tag);
 					FragmentTransaction fragmentTransaction = fragmentManager
 							.beginTransaction();
 					fragmentTransaction.addToBackStack("myFrag3");
+					System.out.println("tag of the button " + v.getTag());
 					fragmentTransaction.remove(
-							fragmentManager.findFragmentByTag(tag)).commit();
+							fragmentManager.findFragmentByTag((String) v.getTag())).commit();
 				}
 			}
 		};
-
-		btnDeleteWorkout.setOnClickListener(listener2);
-		// LinearLayout exLinearLayout = (LinearLayout) v
-		// .findViewById(R.id.exLinearLayout);
-		// EditText exTitle = (EditText) v.findViewById(R.id.exTitle);
-		// EditText exKg = (EditText) v.findViewById(R.id.exKg);
-		// EditText exSets = (EditText) v.findViewById(R.id.exSets);
-		// EditText exReps = (EditText) v.findViewById(R.id.exReps);
-
+		btnDeleteExercise.setOnClickListener(listener2);
 		return v;
 
 	}

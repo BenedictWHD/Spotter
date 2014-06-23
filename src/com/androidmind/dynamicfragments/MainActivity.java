@@ -13,10 +13,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 
 public class MainActivity extends Activity {
 	static List<WorkoutFragment> workoutArray = new ArrayList<WorkoutFragment>();
-	/** Called when the activity is first created. */
 	public static int workoutInt = 0;
 
 	@Override
@@ -34,7 +35,6 @@ public class MainActivity extends Activity {
 						.beginTransaction();
 				WorkoutFragment workoutFrag = new WorkoutFragment();
 				workoutArray.add(workoutFrag);
-				// Integer.toString(fragmentInt)
 				fragmentTransaction.setCustomAnimations(R.anim.slide_in_right,
 						R.anim.slide_out_left, R.anim.slide_out_left,
 						R.anim.slide_in_right);
@@ -42,14 +42,10 @@ public class MainActivity extends Activity {
 						workoutFrag, Integer.toString(workoutInt));
 				System.out.println("Add a workout " + Integer.toString(workoutInt));
 				fragmentTransaction.addToBackStack("myFrag");
-				// use the unique number Integer.toString(workoutInt)
-				
 				fragmentTransaction.commit();
 				workoutInt++;
 			}
 		};
-		addWorkout.setOnClickListener(listener);
-		
-		
+		addWorkout.setOnClickListener(listener);	
 	}
 }
